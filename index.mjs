@@ -1,6 +1,8 @@
 import http from "http";
 import url from "url";
 import fs from "fs";
+import dotenv from "dotenv";
+dotenv.config();
 
 http
   .createServer((req, res) => {
@@ -22,6 +24,7 @@ http
         return;
       }
       res.writeHead(200, { "Content-Type": "text/html" });
+      console.log(process.env.KEY);
       return res.end(data);
     });
   })
